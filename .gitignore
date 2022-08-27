@@ -1,0 +1,5 @@
+*.wav
+*.zip
+*.exe
+env-*
+.vscode
