@@ -1,0 +1,23 @@
+phillipsjhoseph@gmail.com
+Fahadishfaq1
+221.23
+120
+0.90
+94950
+30
+0
+
+
+
+Note:Format
+email
+password
+Selling Rate
+Profit LKR
+PROFIT%
+BankBalance(LKR)
+Bank Charges(LKR)
+Refreshtime(seconds)
+
+
+Start from first line and donot miss anything
