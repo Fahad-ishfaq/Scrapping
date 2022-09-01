@@ -1,9 +1,10 @@
 import speech_recognition as sr
 from pydub import AudioSegment
 
-filename = "audio/audio.mp3"
+basePath = "/home/fahad/Documents/Fahad/DevelopingProjects/Python/Scrapping/Scrapping/CaptchaResolverApi/";
+filename = basePath + "audio/audio.mp3"
 
-dst = "audio/test.wav"
+dst = basePath + "audio/test.wav"
 
 # convert wav to mp3                                                            
 sound = AudioSegment.from_mp3(filename)
