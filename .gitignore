@@ -3,3 +3,4 @@
 *.exe
 env-*
 .vscode
+*.ipynb_checkpoints
