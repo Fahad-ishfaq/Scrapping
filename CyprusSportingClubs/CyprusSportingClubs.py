@@ -41,16 +41,23 @@ def main():
         if (showMoreButton != []):
             showMoreButton[0].click()
             points = row.text.split("\n")
-            time.sleep(2)
-            detailedList = []
-            for detailedRow in driver.find_elements(By.XPATH, "//*[@class='modal-body zero-margin-padding']//div[@class='row sport_m']"):
-                detailedList.append(detailedRow.text.replace("\n", "    "));
+            time.sleep(3)
+            detailedList = {}
+            for leagueDetailRows in driver.find_elements(By.XPATH, "//*[@class='container zero-margin-padding ng-scope']"):
+                detailedRow = leagueDetailRows.find_element(By.XPATH, ".//div[@class='row sport_m']")
+                team = detailedRow.text.replace("\n", "    ");
+                detailedRow.click()
+                oddsList = []
+                for oddsElem in leagueDetailRows.find_elements(By.XPATH, ".//div[@ng-repeat='item in market.odds']/a"):
+                    if (oddsElem.text != ""):
+                        oddsList.append(oddsElem.text)
+                detailedList[team] = oddsList;
             
             headerList = driver.find_elements(By.XPATH, "//*[@class='modal-header red-event-title']//div[@class='ng-binding']")
             details["league"] = headerList[0].text
             details["match"] = headerList[1].text
             details["points"] = points
-            details["detailedList"] =detailedList
+            details["leagueDetails"] =detailedList
             time.sleep(2)
             driver.find_element(By.XPATH, "//*[@ui-turn-off='sportsMore']").click()
             time.sleep(2)
